@@ -40,5 +40,9 @@ SELECT * From film;
 ALTER TABLE film ADD CONSTRAINT fk_zanr
 FOREIGN KEY (zanr_ID) REFERENCES zanr(zanr_ID);
 
+SELECT * FROM film;
+SELECT * FROM zanr;
+UPDATE film SET zanr_ID=5 WHERE fiml_ID=9
+
 
 
