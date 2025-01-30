@@ -62,14 +62,15 @@ UPDATE film SET rezisoor_ID=4 WHERE fiml_ID=4
 
 CREATE TABLE kinokava( 
   kinokava_ID int PRIMARY KEY AUTO_INCREMENT, 
-  vaba_koht int
+  vaba_koht int,
+  kuupaev datetime
   );
 
 INSERT INTO kinokava(vaba_koht)
-VALUES('5'),
-('10'),
-('25'),
-('75');
+VALUES('5', '2025-01-30 15:00:00'),
+('10', '2025-01-30 17:00:00'),
+('25', '2025-01-30 18:00:00),
+('75', '2025-01-30 16:00:00);
 
 ALTER TABLE kinokava ADD fiml_ID int;
 
