@@ -3,3 +3,10 @@ Andmetüüp:
 2. Arv (INT, SMALLINT, DECIMAL(5,2) kus on 5 - kõik arvud, ja 2 - peal koma)
 3. Loogika (bit, bool, boolean, True/False)
 4. Kuupäev (date/time, date, time)
+-----------------------------------------------------------
+Primary key - уникальное опредление строки
+Foreigen key -  seos - связь с PK другой таблице
+NOT NULL - не может быть пустым строка
+UNIQE - не дает, заполнить повторно, например isikukood
+CHECK - valik - может быть ограничение по вводу (мужчины и женщины / от 1 до 10 ввод другие нельзя цифры вводить)
+
