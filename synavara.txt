@@ -13,3 +13,6 @@ CHECK - valik - может быть ограничение по вводу (му
 SQL - язык структурированных запросов (Structure Query Language)
 * DDL - Data Definition Language - язык определение данных - CREATE TABLE, ALTER TABLE, DROP TABLE (работает с полями)
 * DML - Data Manipulation Language - язык манипуляции данных - INSER INTO, UPDATE, DELETE (работает с записями)
+---------------------------------------------------------
+SQL Server Managment Studio
+XAMPP / phpMyAdmin
