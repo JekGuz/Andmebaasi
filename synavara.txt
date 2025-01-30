@@ -9,4 +9,7 @@ Foreigen key -  seos - связь с PK другой таблице
 NOT NULL - не может быть пустым строка
 UNIQE - не дает, заполнить повторно, например isikukood
 CHECK - valik - может быть ограничение по вводу (мужчины и женщины / от 1 до 10 ввод другие нельзя цифры вводить)
-
+---------------------------------------------------------
+SQL - язык структурированных запросов (Structure Query Language)
+* DDL - Data Definition Language - язык определение данных - CREATE TABLE, ALTER TABLE, DROP TABLE (работает с полями)
+* DML - Data Manipulation Language - язык манипуляции данных - INSER INTO, UPDATE, DELETE (работает с записями)
