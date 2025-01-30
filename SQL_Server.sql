@@ -82,14 +82,14 @@ USE TARgvGuzek;
 CREATE TABLE kinokava( 
   kinokava_ID int PRIMARY KEY identity(1,1), 
   vaba_koht int,
-  kuupaev date
+  kuupaev datetime
   );
 
 INSERT INTO kinokava(vaba_koht, kuupaev)
-VALUES('5', '2025-01-30'),
-('10', '2025-01-30'),
-('25', '2025-01-30'),
-('75', '2025-01-30');
+VALUES('5', '2025-01-30 15:00:00'),
+('10', '2025-01-30 16:00:00'),
+('25', '2025-01-30 17:00:00'),
+('75', '2025-01-30 18:00:00');
 
 ALTER TABLE kinokava ADD fiml_ID int;
 
