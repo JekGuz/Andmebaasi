@@ -92,3 +92,32 @@ END;
 EXEC otsingUudiseTeema 'w';
 EXEC otsingUudiseTeema @taht = 'w';
 
+-- XSAMP
+CREATE DATABASE procTARgv24;
+
+USE procTARgv24;
+CREATE TABLE uudised(
+uudised_ID int PRIMARY KEY AUTO_INCREMENT,
+uudise_Teema varchar(50),
+kuupae date,
+autor varchar(25),
+kirjeldus text
+)
+
+SELECT * FROM uudised;
+INSERT INTO uudised(
+uudise_Teema, kuupae, autor, kirjeldus)
+VALUES(
+'udune ilm', '2025-02-06', 'postimees', 'Lõunani fog')
+
+  
+-- PROTCEDURE XSAMP
+CREATE PROCEDURE `lisaUudis`(IN `uusTeema` VARCHAR(50), IN `paev` DATE, IN `autor` VARCHAR(25), 
+  IN `kirjeldus` TEXT) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER 
+  BEGIN INSERT INTO uudised( uudise_Teema, kuupae, autor, kirjeldus) 
+  VALUES( uusTeema, paev, autor, kirjeldus); SELECT * FROM uudised; 
+END;
+
+CALL lisauudis('windows 11', '2025-02-06', 'õpetaja Pant', 'win11 ei tööta multimeedia klassis');
+
+
