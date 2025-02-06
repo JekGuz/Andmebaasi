@@ -77,3 +77,18 @@ END;
 
 -- kutse
 EXEC uuendaKirjeldus 'uus tekst kirjelduses';
+EXEC uuendaKirjeldus @uuskirjeldus = 'uus tekst kirjelduses';
+
+-- protseduur mis otsib ja näitab uudist esimese tähte järgi ('%' - sest otsime mitte üks täht)
+
+CREATE PROCEDURE otsingUudiseTeema
+@taht char(1)
+AS
+BEGIN 
+SELECT * FROM uudised
+WHERE uudise_Teema LIKE @taht +'%';
+END;
+-- kutse
+EXEC otsingUudiseTeema 'w';
+EXEC otsingUudiseTeema @taht = 'w';
+
