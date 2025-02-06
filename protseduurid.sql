@@ -120,4 +120,27 @@ END;
 
 CALL lisauudis('windows 11', '2025-02-06', 'õpetaja Pant', 'win11 ei tööta multimeedia klassis');
 
+-- Õige protseduur copy code
+CREATE PROCEDURE `kustutaUudis`(IN `id` INT) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER BEGIN
+SELECT * FROM uudised;
+DELETE FROM uudised WHERE uudised_ID = @id;
+SELECT * FROM uudised;
+END;
+
+SET @p0='3'; CALL `kustutaUudis`(@p0);
+
+DROP PROCEDURE `uuendaKirjeldus`;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `uuendaKirjeldus`(IN `uuskirjeldus` TEXT) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER BEGIN
+SELECT * FROM uudised;
+UPDATE uudised SET kirjeldus = uuskirjeldus
+WHERE kirjeldus LIKE 'puudub';
+SELECT * FROM uudised;
+END
+
+DROP PROCEDURE `otsingUudiseTeema`;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `otsingUudiseTeema`(IN `taht` CHAR(1)) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER BEGIN 
+SELECT * FROM uudised
+WHERE uudise_Teema LIKE CONCAT(taht, '%');
+END
+
 
