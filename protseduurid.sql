@@ -17,7 +17,7 @@ INSERT INTO uudised(
 uudise_Teema, kuupae, autor, kirjeldus)
 VALUES(
 'udune ilm', '2025-02-06', 'postimees', 'Lõunani fog')
---protseduuri loomine
+-- protseduuri loomine
 -- sisestab uudised tabelisse ja kohe näitab
 
 CREATE PROCEDURE lisaUudis
@@ -35,11 +35,25 @@ VALUES(
 SELECT * FROM uudised;
 
 END;
---kutse
+-- esimene kutse võimalus
 EXEC lisaUudis 'windows 11', '2025-02-06', 'õpetaja Pant', 'win11 ei tööta multimeedia klassis';
---teine kutse võimalus
+-- teine kutse võimalus
 EXEC lisaUudis 
 @uusTeema = '1.märts on juba kevad',
 @paev = '2025-02-06',
 @autor = 'test',
 @kirjeldus = 'puudub';
+
+-- protseduur, mis kustutamine tabelist ID järgi
+CREATE PROCEDURE kustutaUudis
+@id int
+AS
+BEGIN
+SELECT * FROM uudised;
+DELETE FROM uudised WHERE uudised_ID = @id;
+SELECT * FROM uudised;
+END;
+-- kutseme protseduur kustuta 1
+EXEC kustutaUudis 3;
+-- kutseme protseduur kustuta 2
+EXEC kustutaUudis @id = 3;
